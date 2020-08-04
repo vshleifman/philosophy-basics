@@ -6,11 +6,11 @@ import Col from "react-bootstrap/Col";
 import Card from "components/phil time card/PhilTimeCard";
 import axios from "axios";
 
-import { Text } from "config/styles";
+import { Text } from "styles/styles";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import PeriodInfo from "pages/historical/PeriodInfo";
-import { Era, PeriodDataType } from "config/types";
+import { Era, PeriodDataType } from "types/types";
 
 const HistoricalPage = () => {
   return (
@@ -96,11 +96,11 @@ const Historical = () => {
   return (
     <Switch>
       <Route exact path={path} component={HistoricalPage} />
-      {periods.map((card, i) => (
+      {periods.map((period, i) => (
         <Route
           key={i}
-          path={`${path}/${card.period_enum}`}
-          render={() => <PeriodInfo {...card} />}
+          path={`${path}/${period.period_enum}`}
+          render={() => <PeriodInfo {...period} />}
         />
       ))}
     </Switch>

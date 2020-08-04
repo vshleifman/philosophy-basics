@@ -7,7 +7,7 @@ import light from "img/periods/light.jpg";
 import hel from "img/philos/zeno.jpg";
 import rom from "img/periods/RomanHallofPhilosophers2.jpg";
 
-import { Period, PeriodDataType } from "config/types";
+import { Period, PeriodDataType } from "types/types";
 
 const periodData =
   // :

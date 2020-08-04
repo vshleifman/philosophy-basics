@@ -2,9 +2,9 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { PhilType } from "config/types";
+import { PhilType } from "types/types";
 import Figure from "react-bootstrap/Figure";
-import { Text } from "config/styles";
+import { Text } from "styles/styles";
 
 const IndivPhilosopher = ({
   text_intro,

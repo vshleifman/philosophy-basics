@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import { Link, useRouteMatch } from "react-router-dom";
-import { PeriodDataType, Era } from "config/types";
-import axios from "axios";
+import { PeriodDataType, Era } from "types/types";
+import { useDispatch, useSelector } from "react-redux";
+import { setPeriodsThunk } from "reducers/periodSlice";
+import { periodsSelector } from "selectors/selectors";
 
 const { Img, Body, Title, Text } = Card;
 
@@ -12,19 +14,13 @@ interface PhilTimeCardProps {
 
 const PhilTimeCard = ({ currentEra }: PhilTimeCardProps) => {
   let { path } = useRouteMatch();
-  const [periods, setPeriods] = useState([]);
 
-  const fetchPeriods = async () => {
-    try {
-      const periodData = await axios.get("http://localhost:3001/period");
-      setPeriods(periodData.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const dispatch = useDispatch();
+  const { periods } = useSelector(periodsSelector);
+
   useEffect(() => {
-    fetchPeriods();
-  }, []);
+    dispatch(setPeriodsThunk());
+  }, [dispatch]);
 
   const getCurrentPeriods = () => {
     return periods.filter(

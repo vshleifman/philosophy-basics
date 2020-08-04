@@ -1,5 +1,5 @@
 import React from "react";
-import { PhilType } from "config/types";
+import { PhilType } from "types/types";
 import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -36,13 +36,15 @@ const PhilosophersList = ({
                 topname
                   ? `/philosophers/${fname}_${topname}`
                   : lname
-                  ? `/philosophers/${fname}_${lname}`
+                  ? `/philosophers/${lname}_${fname}`
                   : `/philosophers/${fname}`
               }
             >
               <Button className="my-1" variant="light">
-                {lname
-                  ? `${fname}, ${lname} (${dates})`
+                {topname
+                  ? `${fname} ${topname} (${dates})`
+                  : lname
+                  ? `${lname}, ${fname} (${dates})`
                   : `${fname} (${dates})`}
               </Button>
               <br />

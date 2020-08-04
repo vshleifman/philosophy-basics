@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import { Text } from "config/styles";
-// import { philosophers } from "data/philosophersData";
+import { Text } from "styles/styles";
 import PhilosophersList from "components/philosophers-list/PhilosophersList";
-import { PeriodDataType, PhilType } from "config/types";
-import axios from "axios";
+import { PeriodDataType } from "types/types";
+import { useDispatch, useSelector } from "react-redux";
+import { philosophersSelector } from "selectors/selectors";
+import { setPhilosophersThunk } from "reducers/philosopherSlice";
 
 const PeriodInfo = ({
   title,
@@ -15,25 +16,15 @@ const PeriodInfo = ({
   text4,
   period_id,
 }: PeriodDataType) => {
-  const [philosophers, setPhilosophers] = useState<PhilType[]>([]);
-
-  const fetchPhilosophers = async () => {
-    try {
-      const philosophersSrc = await (
-        await axios.get("http://localhost:3001/philosopher")
-      ).data;
-      setPhilosophers(philosophersSrc);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const dispatch = useDispatch();
+  const { philosophers } = useSelector(philosophersSelector);
 
   useEffect(() => {
-    fetchPhilosophers();
-  }, []);
+    dispatch(setPhilosophersThunk());
+  }, [dispatch]);
 
   const periodPhilosophers = philosophers.filter(
-    (phil) => phil.period_id === period_id
+    (phil) => phil.PeriodId === period_id
   );
 
   const text = [text1, text2, text3, text4];
@@ -45,7 +36,7 @@ const PeriodInfo = ({
 
         <Text className="mt-3">{text[0]}</Text>
 
-        <Text>It include the following major philosophers:</Text>
+        <Text>It includes the following major philosophers:</Text>
       </Row>
 
       <Row>

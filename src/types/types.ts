@@ -42,5 +42,5 @@ export interface PhilType {
   text_intro: string;
   text_life: string;
   text_work: string;
-  period_id: number;
+  PeriodId: number;
 }

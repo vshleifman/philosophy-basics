@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { PeriodDataType } from "config/types";
-import { AppThunk } from "store";
+import { PeriodDataType } from "types/types";
+import { AppThunk } from "store/store";
 import axiosInstance from "api/axiosInst";
 
 interface PeriodSliceState {
@@ -24,7 +24,9 @@ export const setPeriodsThunk = (): AppThunk => async (dispatch) => {
   try {
     const response = await axiosInstance.get("/period");
     dispatch(setPeriods(response.data));
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const { setPeriods } = periodSlice.actions;

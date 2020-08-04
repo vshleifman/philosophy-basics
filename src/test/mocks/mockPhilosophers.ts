@@ -1,4 +1,4 @@
-import { Period, PhilType } from "config/types";
+import { Period, PhilType } from "types/types";
 
 const philosophers = [
   {
