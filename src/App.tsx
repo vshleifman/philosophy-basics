@@ -1,25 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navigation from "./components/navigation/Navigation";
+import Footer from "./components/footer/Footer";
+import styled from "styled-components";
+import { Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Movement from "./pages/movement/Movement";
+import Historical from "./pages/historical/Historical";
+import Philosophers from "./pages/philosophers/Philosophers";
+
+const GrFooter = styled(Footer)`
+  grid-area: footer;
+  justify-self: stretch;
+`;
+const GrNav = styled(Navigation)`
+  grid-area: nav;
+`;
+
+const GrSwitch = styled.div`
+  grid-area: body;
+`;
+const Main = styled.div`
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 65px auto minmax(auto, 72px);
+  grid-template-areas:
+    "nav"
+    "body"
+    "footer";
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Main>
+      <GrNav />
+
+      <GrSwitch>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/historical" component={Historical} />
+          <Route path="/movement" component={Movement} />
+          <Route path="/philosophers" component={Philosophers} />
+        </Switch>
+      </GrSwitch>
+
+      <GrFooter />
+    </Main>
   );
 }
 
