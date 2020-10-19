@@ -1,0 +1,7 @@
+version: "3"
+services:
+  frontend-service:
+    environment: 
+      NODE_ENV: production
+    expose: 
+      - 5000    

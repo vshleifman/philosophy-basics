@@ -35,7 +35,8 @@
     "enzyme-adapter-react-16": "^1.15.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "if test \"$NODE_ENV\" = \"production\"; then npm run build && npx serve -n -s build; else npm run start:dev; fi",
+    "start:dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

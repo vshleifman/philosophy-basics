@@ -1,0 +1,17 @@
+version: "3"
+services:
+  frontend-service:
+    stdin_open: true
+    build: .
+    tty: true
+    labels:
+      traefik.http.routers.rbp_frontend.rule: Host(`${DOMAIN}`)
+      traefik.http.routers.rbp_frontend.entrypoints: websecure
+      traefik.http.routers.rbp_frontend.tls.certresolver: cfdnsresolver
+      traefik.http.routers.rbp_frontend.tls.domains[0].main: ${DOMAIN}
+      traefik.http.routers.rbp_frontend.tls.domains[0].sans: www.${DOMAIN}
+      
+networks:
+  default:
+    external:
+      name: traefik
