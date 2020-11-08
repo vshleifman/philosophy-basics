@@ -19,9 +19,16 @@ const PhilosophersPage = () => {
 
   return (
     <Container>
-      <Text data-testid="text" className="mt-3">
-        Major philosophers in alphabetical order:
-      </Text>
+      <Row>
+        <div className="col-12">
+          <br/>
+          <h1 className="text-center display-4">By Philosopher</h1>
+          <Text data-testid="text" className="mt-3">
+            Major philosophers in alphabetical order:
+          </Text>
+        </div>
+
+      </Row>
 
       <Row>
         <PhilosophersList philosophers={philosophers} fraction={3} />

@@ -1,10 +1,8 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import Footer from "components/footer/Footer";
-import Container from "react-bootstrap/Container";
+import React from 'react';
+import {render} from '@testing-library/react';
+import Footer from '../Footer'
 
-test("footer renders", () => {
-  const { container } = render(<Footer />);
-  const footerElement = container.querySelector("footer");
-  expect(footerElement).toBeInTheDocument();
+test('renders a footer', () => {
+  const { getByTestId } = render(<Footer />);
+  getByTestId('footer');
 });

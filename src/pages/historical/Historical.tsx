@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Card from "components/phil time card/PhilTimeCard";
+import PeriodInfo from "pages/historical/PeriodInfo";
+import { periodsSelector } from "selectors/selectors";
+
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "components/phil time card/PhilTimeCard";
-import axios from "axios";
 
 import { Text } from "styles/styles";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 
-import PeriodInfo from "pages/historical/PeriodInfo";
-import { Era, PeriodDataType } from "types/types";
+import { Era } from "types/types";
+import { useSelector } from "react-redux";
 
 const HistoricalPage = () => {
   return (
@@ -79,19 +81,7 @@ const HistoricalPage = () => {
 
 const Historical = () => {
   const { path } = useRouteMatch();
-  const [periods, setPeriods] = useState<PeriodDataType[]>([]);
-
-  const fetchPeriods = async () => {
-    try {
-      const periodData = await axios.get("http://localhost:3001/period");
-      setPeriods(periodData.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    fetchPeriods();
-  }, []);
+  const { periods } = useSelector(periodsSelector);
 
   return (
     <Switch>

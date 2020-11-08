@@ -9,7 +9,7 @@ const Img = styled(Image)`
 
 const Quoter = () => {
   return (
-    <div>
+    <div data-testid='main-img'>
       <Img src={image} />
     </div>
   );
