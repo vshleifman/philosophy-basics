@@ -8,6 +8,7 @@ const Quote = styled.h4`
   padding: 20px 0 5px 0;
   text-align: center;
   justify-content: center;
+  width: 100%;
 `;
 
 const Home = () => {

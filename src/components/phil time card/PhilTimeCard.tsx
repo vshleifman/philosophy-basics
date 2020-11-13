@@ -23,18 +23,13 @@ const PhilTimeCard = ({ currentEra }: PhilTimeCardProps) => {
   }, [dispatch]);
 
   const getCurrentPeriods = () => {
-    return periods.filter(
-      (period: PeriodDataType) => period.era === currentEra
-    );
+    return periods.filter((period) => period.era === currentEra);
   };
 
   return (
     <>
       {getCurrentPeriods().map(
-        (
-          { title, img_url, dates, description, period_enum }: PeriodDataType,
-          i
-        ) => {
+        ({ title, img_url, dates, description, period_enum }, i) => {
           return (
             <Card key={i} className="my-3" bg="light">
               <Link to={`${path}/${period_enum}`}>

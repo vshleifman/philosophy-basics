@@ -41,33 +41,35 @@ const dropCategories: DropDownPropType = {
 
 const Navigation = () => {
   return (
-    <Navbar
-      data-testid="navigation"
-      expand="md"
-      bg="dark"
-      variant="dark"
-      sticky="top"
-    >
-      <Brand data-testid="brand-link">
-        <Link href="/">
-          <Image height="35px" src={logo} roundedCircle></Image>
-        </Link>
-      </Brand>
-      <Toggle aria-controls="navbar" />
-      <Collapse id="navbar">
-        <Nav data-testid="dropdowns">
-          <DropDown drop={dropCategories} />
-        </Nav>
-        <Nav data-testid="links">
-          <NavLink page={"historical"} />
-          <NavLink page={"movement"} />
-          <NavLink page={"philosophers"} />
-        </Nav>
-        <Nav className="ml-auto">
-          <SearchBar />
-        </Nav>
-      </Collapse>
-    </Navbar>
+    <div>
+      <Navbar
+        data-testid="navigation"
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        sticky="top"
+      >
+        <Brand data-testid="brand-link">
+          <Link href="/">
+            <Image height="35px" src={logo} roundedCircle></Image>
+          </Link>
+        </Brand>
+        <Toggle aria-controls="navbar" />
+        <Collapse id="navbar">
+          <Nav data-testid="dropdowns">
+            <DropDown drop={dropCategories} />
+          </Nav>
+          <Nav data-testid="links">
+            <NavLink page={"historical"} />
+            <NavLink page={"movement"} />
+            <NavLink page={"philosophers"} />
+          </Nav>
+          <Nav className="ml-auto">
+            <SearchBar />
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
   );
 };
 
