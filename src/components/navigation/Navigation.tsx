@@ -56,17 +56,21 @@ const Navigation = () => {
         </Brand>
         <Toggle aria-controls="navbar" />
         <Collapse id="navbar">
-          <Nav data-testid="dropdowns">
-            <DropDown drop={dropCategories} />
-          </Nav>
+          {process.env.NODE_ENV === "development" ? (
+            <Nav data-testid="dropdowns">
+              <DropDown drop={dropCategories} />
+            </Nav>
+          ) : null}
           <Nav data-testid="links">
             <NavLink page={"historical"} />
             <NavLink page={"movement"} />
             <NavLink page={"philosophers"} />
           </Nav>
-          <Nav className="ml-auto">
-            <SearchBar />
-          </Nav>
+          {process.env.NODE_ENV === "development" ? (
+            <Nav className="ml-auto">
+              <SearchBar />
+            </Nav>
+          ) : null}
         </Collapse>
       </Navbar>
     </div>

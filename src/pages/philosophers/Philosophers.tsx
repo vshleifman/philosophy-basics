@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPhilosophersThunk } from "reducers/philosopherSlice";
 import { philosophersSelector } from "selectors/selectors";
 
+import { NotReady } from "App";
+
 const PhilosophersPage = () => {
   const dispatch = useDispatch();
   const { philosophers } = useSelector(philosophersSelector);
@@ -21,13 +23,12 @@ const PhilosophersPage = () => {
     <Container>
       <Row>
         <div className="col-12">
-          <br/>
+          <br />
           <h1 className="text-center display-4">By Philosopher</h1>
           <Text data-testid="text" className="mt-3">
             Major philosophers in alphabetical order:
           </Text>
         </div>
-
       </Row>
 
       <Row>
@@ -60,7 +61,10 @@ const Philosophers = () => {
               ? `${path}/${philo.lname}_${philo.fname}`
               : `${path}/${philo.fname}`
           }
-          render={() => <IndivPhilosopher {...philo} />}
+          //@ts-ignore
+          render={() =>
+            philo.text_intro ? <IndivPhilosopher {...philo} /> : <NotReady />
+          }
         />
       ))}
     </Switch>

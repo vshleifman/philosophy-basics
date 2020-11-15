@@ -13,6 +13,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import { Era } from "types/types";
 import { useSelector } from "react-redux";
+import { NotReady } from "App";
 
 const HistoricalPage = () => {
   return (
@@ -90,7 +91,9 @@ const Historical = () => {
         <Route
           key={i}
           path={`${path}/${period.period_enum}`}
-          render={() => <PeriodInfo {...period} />}
+          render={() =>
+            period.text1 ? <PeriodInfo {...period} /> : <NotReady />
+          }
         />
       ))}
     </Switch>

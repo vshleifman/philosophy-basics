@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Movement from "./pages/movement/Movement";
 import Historical from "./pages/historical/Historical";
 import Philosophers from "./pages/philosophers/Philosophers";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Button from "react-bootstrap/Button";
 
 const GrFooter = styled(Footer)`
   grid-area: footer;
@@ -40,7 +42,9 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/historical" component={Historical} />
           <Route path="/movement" component={Movement} />
+          <Route path="/movement*" exact component={NotReady} />
           <Route path="/philosophers" component={Philosophers} />
+          <Route path="/philosophers/*" exact component={NotReady} />
         </Switch>
       </GrSwitch>
 
@@ -48,5 +52,23 @@ function App() {
     </Main>
   );
 }
+
+export const NotReady = () => {
+  return (
+    <div
+      style={{ display: "flex", justifyContent: "center", marginTop: "5em" }}
+    >
+      <Jumbotron>
+        <h1>Hi! The content is on its way!</h1>
+        <br />
+        <p>
+          <Button variant="primary" href="/">
+            Go Home
+          </Button>
+        </p>
+      </Jumbotron>
+    </div>
+  );
+};
 
 export default App;
