@@ -7,4 +7,4 @@ const testEra = Era.ANCIENT;
 
 const render = customRender(<PhilTimeCard currentEra={testEra} />);
 
-test("");
+test("hi", () => {});

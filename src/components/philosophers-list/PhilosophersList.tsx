@@ -5,12 +5,12 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 const chunkify = <T extends any>(array: T[], fraction: number) => {
-  const chunk = Math.ceil(array.length / fraction);
+  const chunkLength = Math.ceil(array.length / fraction);
   const items: T[][] = [];
 
   for (let i = 0; i < fraction; i++) {
-    let chunkStart = Math.ceil(chunk * i);
-    const newArray = array.slice(chunkStart, chunkStart + chunk);
+    let chunkStart = Math.ceil(chunkLength * i);
+    const newArray = array.slice(chunkStart, chunkStart + chunkLength);
 
     items.push(newArray);
   }

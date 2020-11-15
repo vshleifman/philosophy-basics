@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import { Link, useRouteMatch } from "react-router-dom";
-import { PeriodDataType, Era } from "types/types";
+import { Era } from "types/types";
 import { useDispatch, useSelector } from "react-redux";
 import { setPeriodsThunk } from "reducers/periodSlice";
 import { periodsSelector } from "selectors/selectors";

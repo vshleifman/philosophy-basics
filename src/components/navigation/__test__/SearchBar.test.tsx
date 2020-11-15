@@ -16,7 +16,7 @@ test("entering search displays an alert", () => {
   fireEvent.keyDown(searchBox, { key: "Enter", code: "Enter" });
   // console.log(screen.getByRole("alert"));
 
-  screen.debug(document);
+  // screen.debug(document);
   // expect(
   //   screen.getByText(`Congrats! You've sarched for ${searchTerm}`)
   // ).toBeInTheDocument();
