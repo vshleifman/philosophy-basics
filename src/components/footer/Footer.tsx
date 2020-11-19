@@ -16,7 +16,8 @@ const Footer = () => {
         <Row>
           <p className="py-2 my-2">
             The articles on this site are © 2008-2020. If you quote this
-            material please be courteous and provide a link.
+            material please be courteous and provide a link. Information taken
+            from pilosophybasics.com
           </p>
         </Row>
       </Container>
