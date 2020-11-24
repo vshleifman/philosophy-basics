@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "components/phil time card/PhilTimeCard";
+import PeriodCard from "components/PeriodCard/PeriodCard";
 import PeriodInfo from "pages/historical/PeriodInfo";
 import { periodsSelector } from "selectors/selectors";
 
@@ -13,7 +13,24 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import { Era } from "types/types";
 import { useSelector } from "react-redux";
-import { NotReady } from "App";
+import NotReady from "components/NotReady/NotReady";
+import { SHeading as SHeadingSrc, Sp as SpSrc } from "pages/Home";
+import styled from "styled-components";
+
+const SHeading = styled(SHeadingSrc)`
+  color: black;
+`;
+
+const SHeadingSmall = styled(SHeading)`
+  text-align: center;
+  font-size: 2.5vh;
+  font-weight: bolder;
+`;
+
+const Sp = styled(SpSrc)`
+  color: black;
+  text-align: left;
+`;
 
 const HistoricalPage = () => {
   return (
@@ -21,59 +38,55 @@ const HistoricalPage = () => {
       <Container>
         <Row>
           <div className="col-12">
-            <br />
-            <h1 className="text-center display-4">By Historical Period</h1>
-            <br />
+            <SHeading>By Historical Period</SHeading>
 
-            <Text>
+            <Sp>
               The long history of Western Philosophy is usually considered to
               begin with Thales of Miletus, who was active around 585 B.C., and
               will probably continue as long as humans exist.
-            </Text>
+            </Sp>
 
-            <Text>
-              For convenience, it can be divided into three main eras:
-            </Text>
+            <Sp>For convenience, it can be divided into three main eras:</Sp>
           </div>
         </Row>
 
         <Row>
-          <Col>
-            <h2 className="text-center">Ancient</h2>
+          <Col md="4">
+            <SHeadingSmall>Ancient</SHeadingSmall>
             <hr />
-            <Card currentEra={Era.ANCIENT} />
+            <PeriodCard currentEra={Era.ANCIENT} />
           </Col>
 
-          <Col>
-            <h2 className="text-center">Medieval</h2>
+          <Col md="4">
+            <SHeadingSmall>Medieval</SHeadingSmall>
             <hr />
-            <Card currentEra={Era.MEDIEVAL} />
+            <PeriodCard currentEra={Era.MEDIEVAL} />
           </Col>
 
-          <Col>
-            <h2 className="text-center">Modern</h2>
+          <Col md="4">
+            <SHeadingSmall>Modern</SHeadingSmall>
             <hr />
-            <Card currentEra={Era.MODERN} />
+            <PeriodCard currentEra={Era.MODERN} />
           </Col>
         </Row>
       </Container>
 
       <Jumbotron>
         <Container>
-          <Text>
+          <Sp>
             The dates are just rough guides, and the classifications rather
             arbitrary (for example, the Modern period is sometimes considered to
             start with the Age of Reason philosophers, and sometimes with the
             Renaissance philosophers). There is obviously also a certain amount
             of overlap between these periods.
-          </Text>
+          </Sp>
 
-          <Text>
+          <Sp>
             Also see the Philosophy Timeline for an overview of Western
             Philosophy, created as one long image to give an idea of the
             relative scale and the clusters of activity in philosophical
             thought.
-          </Text>
+          </Sp>
         </Container>
       </Jumbotron>
     </>

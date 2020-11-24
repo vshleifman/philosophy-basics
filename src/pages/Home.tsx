@@ -1,10 +1,7 @@
 import React from "react";
-import Quoter from "../components/quoter/Quoter";
 import Container from "react-bootstrap/Container";
 import styled from "styled-components";
 import CallToAction from "components/CallToAction/CallToAction";
-import Jumbotron from "react-bootstrap/Jumbotron";
-import image from "img/Philosophy-and-Modern-Language.png";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -18,17 +15,17 @@ const JumboImg = styled.div`
   height: 100vh;
 `;
 
-const MainText = styled.p`
+export const SHeading = styled.p`
   color: white;
-  font-size: 5vh;
+  font-size: 3vw;
   font-weight: 400;
   text-align: center;
 `;
 
-const Quote = styled.h4`
+export const Sp = styled.h4`
   color: white;
   font-weight: 200;
-  font-size: 2vh;
+  font-size: 1.5vw;
   padding: 20px 0 5px 0;
   text-align: center;
   width: 100%;
@@ -44,14 +41,14 @@ const Home = () => {
       <JumboImg>
         <Container fluid>
           <Row className="justify-content-between align-items-center pt-3">
-            <Col sm="4">
-              <MainText>BASICS OF PHILOSOPHY</MainText>
+            <Col lg="4">
+              <SHeading>BASICS OF PHILOSOPHY</SHeading>
             </Col>
-            <Col sm="8">
-              <Quote>
+            <Col lg="8">
+              <Sp>
                 If men were born free, they would, so long as they remained
                 free, form no conception of good and evil” – Baruch Spinoza
-              </Quote>
+              </Sp>
             </Col>
           </Row>
 

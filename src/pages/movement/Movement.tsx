@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { Text } from "styles/styles";
+import styled from "styled-components";
+import { SHeading as SHeadingSrc, Sp as SpSrc } from "pages/Home";
 
 const ancientMoves = [
   "Aristotelianism",
@@ -60,12 +62,44 @@ const modMoves = [
   "Utilitarianism",
 ];
 
+const SButton = styled(Button)`
+  width: 100%;
+  &:hover {
+    color: #ffffff;
+    border: 2px solid #3e4edf;
+    background-color: #eb7412;
+  }
+`;
+
+export const SLink = styled(Link)`
+  width: 100%;
+  text-decoration: none;
+  color: black;
+`;
+
+const SHeading = styled(SHeadingSrc)`
+  color: black;
+`;
+
+const SHeadingSmall = styled(SHeading)`
+  text-align: center;
+  font-size: 2.5vw;
+  font-weight: bolder;
+`;
+
+const Sp = styled(SpSrc)`
+  color: black;
+  text-align: left;
+`;
+
 const listMoves = (arr: string[]) =>
   arr.map((move: string) => (
     <Row key={move}>
-      <Button className="mb-2" variant="light">
-        <Link to={`movements_${move}`}>{move}</Link>
-      </Button>
+      <SLink to={`movements_${move}`}>
+        <SButton className="mb-2" variant="light">
+          <Sp style={{ textAlign: "center" }}>{move}</Sp>
+        </SButton>
+      </SLink>
       <br />
     </Row>
   ));
@@ -75,10 +109,8 @@ const Movement = () => {
     <Container>
       <Row>
         <div className="col-12">
-          <br />
-          <h1 className="text-center display-4">By Movement</h1>
-          <br />
-          <Text>
+          <SHeading>By Movement</SHeading>
+          <Sp>
             A philosophical movement is the appearance of (or the increased
             popularity of) a specific school of philosophy, an identifiable
             tradition of philosophy, or a marked change in philosophical thought
@@ -86,8 +118,8 @@ const Movement = () => {
             philosophers, artists, or writers, whose thought, work, or style
             demonstrates a common origin or influence or unifying belief. These
             are the famous “-isms” of philosophy.
-          </Text>
-          <Text>
+          </Sp>
+          <Sp>
             A movement or school may represent the broad views of many
             individual philosophers, even if they may not agree entirely in all
             respects, so it is more a diffusely organized or heterogeneous group
@@ -96,26 +128,26 @@ const Movement = () => {
             individuals on several related ideas or doctrines, and the
             distinction between schools or movements, and doctrines or theories
             is sometimes blurred.
-          </Text>
-          <Text>
+          </Sp>
+          <Sp>
             For convenience, the major movements and schools can be classified
             under three main sub-headings:
-          </Text>
+          </Sp>
         </div>
       </Row>
       <Row>
-        <Col>
-          <h2 className="text-center">Ancient</h2>
+        <Col sm="4">
+          <SHeadingSmall>Ancient</SHeadingSmall>
           <hr />
           {listMoves(ancientMoves)}
         </Col>
-        <Col>
-          <h2 className="text-center">Medieval</h2>
+        <Col sm="4">
+          <SHeadingSmall>Medieval</SHeadingSmall>
           <hr />
           {listMoves(medMoves)}
         </Col>
-        <Col>
-          <h2 className="text-center">Modern</h2>
+        <Col sm="4">
+          <SHeadingSmall>Modern</SHeadingSmall>
           <hr />
           {listMoves(modMoves)}
         </Col>

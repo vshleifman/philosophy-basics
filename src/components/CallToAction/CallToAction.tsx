@@ -21,14 +21,14 @@ const Heading = styled(Text)`
   font-size: 2vh;
 `;
 
-const SCard = styled(Card)`
+export const SCard = styled(Card)`
   border-radius: 15px;
   border: 2px solid #000000;
   background-color: #ffffff;
   padding: 2em;
   margin-left: 3em;
   margin-right: 3em;
-  transition: border 0.5s, background-color 0.5s;
+  transition: border 0.5s, background-color 0.5s, color 0.5s;
   &:hover {
     color: #ffffff;
     border: 2px solid #3e4edf;

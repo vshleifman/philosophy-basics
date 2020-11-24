@@ -5,6 +5,8 @@ import { Era } from "types/types";
 import { useDispatch, useSelector } from "react-redux";
 import { setPeriodsThunk } from "reducers/periodSlice";
 import { periodsSelector } from "selectors/selectors";
+import { SCard } from "components/CallToAction/CallToAction";
+import { SLink } from "pages/movement/Movement";
 
 const { Img, Body, Title, Text } = Card;
 
@@ -12,7 +14,7 @@ interface PhilTimeCardProps {
   currentEra: Era;
 }
 
-const PhilTimeCard = ({ currentEra }: PhilTimeCardProps) => {
+const PeriodCard = ({ currentEra }: PhilTimeCardProps) => {
   let { path } = useRouteMatch();
 
   const dispatch = useDispatch();
@@ -31,8 +33,11 @@ const PhilTimeCard = ({ currentEra }: PhilTimeCardProps) => {
       {getCurrentPeriods().map(
         ({ title, img_url, dates, description, period_enum }, i) => {
           return (
-            <Card key={i} className="my-3" bg="light">
-              <Link to={`${path}/${period_enum}`}>
+            <SLink
+              style={{ textDecoration: "none", color: "black" }}
+              to={`${path}/${period_enum}`}
+            >
+              <SCard key={i} className="my-3">
                 <Img variant="top" src={img_url} />
                 <Body>
                   <Title>{title}</Title>
@@ -42,8 +47,8 @@ const PhilTimeCard = ({ currentEra }: PhilTimeCardProps) => {
                     {description}
                   </Text>
                 </Body>
-              </Link>
-            </Card>
+              </SCard>
+            </SLink>
           );
         }
       )}
@@ -51,4 +56,4 @@ const PhilTimeCard = ({ currentEra }: PhilTimeCardProps) => {
   );
 };
 
-export default PhilTimeCard;
+export default PeriodCard;

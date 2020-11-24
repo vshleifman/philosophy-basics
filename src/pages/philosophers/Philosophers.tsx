@@ -9,7 +9,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPhilosophersThunk } from "reducers/philosopherSlice";
 import { philosophersSelector } from "selectors/selectors";
 
-import { NotReady } from "App";
+import NotReady from "components/NotReady/NotReady";
+import { SHeading as SHeadingSrc, Sp as SpSrc } from "pages/Home";
+import styled from "styled-components";
+
+const SHeading = styled(SHeadingSrc)`
+  color: black;
+`;
+
+const Sp = styled(SpSrc)`
+  color: black;
+  text-align: left;
+`;
 
 const PhilosophersPage = () => {
   const dispatch = useDispatch();
@@ -23,11 +34,8 @@ const PhilosophersPage = () => {
     <Container>
       <Row>
         <div className="col-12">
-          <br />
-          <h1 className="text-center display-4">By Philosopher</h1>
-          <Text data-testid="text" className="mt-3">
-            Major philosophers in alphabetical order:
-          </Text>
+          <SHeading>By Philosopher</SHeading>
+          <Sp>Major philosophers in alphabetical order:</Sp>
         </div>
       </Row>
 
