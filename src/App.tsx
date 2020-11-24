@@ -22,7 +22,7 @@ const GrSwitch = styled.div`
   grid-area: body;
 `;
 const Main = styled.div`
-  font-family: "Ubuntu";
+  font-family: "Cinzel";
   min-height: 100vh;
   display: grid;
   grid-template-columns: auto;

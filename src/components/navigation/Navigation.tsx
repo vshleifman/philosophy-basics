@@ -8,6 +8,7 @@ import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
 
 import logo from "img/philosophy.png";
+import styled from "styled-components";
 
 const { Brand, Toggle, Collapse } = Navbar;
 const { Link } = Nav;
@@ -39,12 +40,20 @@ const dropCategories: DropDownPropType = {
   ],
 };
 
+const SDiv = styled.div`
+  font-size: 1.8vh;
+`;
+
+const SNavbar = styled(Navbar)`
+  padding: 0.5vh;
+`;
+
 const Navigation = () => {
   return (
-    <div>
-      <Navbar
+    <SDiv>
+      <SNavbar
         data-testid="navigation"
-        expand="lg"
+        expand="xl"
         bg="dark"
         variant="dark"
         sticky="top"
@@ -72,8 +81,8 @@ const Navigation = () => {
             </Nav>
           ) : null}
         </Collapse>
-      </Navbar>
-    </div>
+      </SNavbar>
+    </SDiv>
   );
 };
 
