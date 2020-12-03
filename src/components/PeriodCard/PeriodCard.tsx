@@ -5,16 +5,15 @@ import { Era } from "types/types";
 import { useDispatch, useSelector } from "react-redux";
 import { setPeriodsThunk } from "reducers/periodSlice";
 import { periodsSelector } from "selectors/selectors";
-import { SCard } from "components/CallToAction/CallToAction";
-import { SLink } from "pages/movement/Movement";
+import { SCard, SLink } from "styles/styles";
 
 const { Img, Body, Title, Text } = Card;
 
-interface PhilTimeCardProps {
+interface PeriodCardProps {
   currentEra: Era;
 }
 
-const PeriodCard = ({ currentEra }: PhilTimeCardProps) => {
+const PeriodCard = ({ currentEra }: PeriodCardProps) => {
   let { path } = useRouteMatch();
 
   const dispatch = useDispatch();

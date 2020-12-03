@@ -3,6 +3,7 @@ import { PhilType } from "types/types";
 import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { SButton, SLink } from "styles/styles";
 
 const chunkify = <T extends any>(array: T[], fraction: number) => {
   const chunkLength = Math.ceil(array.length / fraction);
@@ -30,7 +31,7 @@ const PhilosophersList = ({
       {chunkify(philosophers, fraction).map((chunk, i) => (
         <Col key={i}>
           {chunk.map(({ dates, lname, fname, topname }) => (
-            <Link
+            <SLink
               key={dates}
               to={
                 topname
@@ -40,15 +41,15 @@ const PhilosophersList = ({
                   : `/philosophers/${fname}`
               }
             >
-              <Button className="my-1" variant="light">
+              <SButton variant="light">
                 {topname
                   ? `${fname} ${topname} (${dates})`
                   : lname
                   ? `${lname}, ${fname} (${dates})`
                   : `${fname} (${dates})`}
-              </Button>
+              </SButton>
               <br />
-            </Link>
+            </SLink>
           ))}
         </Col>
       ))}

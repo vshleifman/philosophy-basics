@@ -4,9 +4,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { Text } from "styles/styles";
 import styled from "styled-components";
-import { SHeading as SHeadingSrc, Sp as SpSrc } from "pages/Home";
+import { Sh1, Sh2, Sp } from "styles/styles";
 
 const ancientMoves = [
   "Aristotelianism",
@@ -71,35 +70,14 @@ const SButton = styled(Button)`
   }
 `;
 
-export const SLink = styled(Link)`
-  width: 100%;
-  text-decoration: none;
-  color: black;
-`;
-
-const SHeading = styled(SHeadingSrc)`
-  color: black;
-`;
-
-const SHeadingSmall = styled(SHeading)`
-  text-align: center;
-  font-size: 2.5vw;
-  font-weight: bolder;
-`;
-
-const Sp = styled(SpSrc)`
-  color: black;
-  text-align: left;
-`;
-
 const listMoves = (arr: string[]) =>
   arr.map((move: string) => (
     <Row key={move}>
-      <SLink to={`movements_${move}`}>
-        <SButton className="mb-2" variant="light">
+      <Link to={`movements_${move}`}>
+        <Button className="mb-2" variant="light">
           <Sp style={{ textAlign: "center" }}>{move}</Sp>
-        </SButton>
-      </SLink>
+        </Button>
+      </Link>
       <br />
     </Row>
   ));
@@ -107,47 +85,44 @@ const listMoves = (arr: string[]) =>
 const Movement = () => {
   return (
     <Container>
-      <Row>
-        <div className="col-12">
-          <SHeading>By Movement</SHeading>
-          <Sp>
-            A philosophical movement is the appearance of (or the increased
-            popularity of) a specific school of philosophy, an identifiable
-            tradition of philosophy, or a marked change in philosophical thought
-            on a particular subject. A school is a group of people, especially
-            philosophers, artists, or writers, whose thought, work, or style
-            demonstrates a common origin or influence or unifying belief. These
-            are the famous “-isms” of philosophy.
-          </Sp>
-          <Sp>
-            A movement or school may represent the broad views of many
-            individual philosophers, even if they may not agree entirely in all
-            respects, so it is more a diffusely organized or heterogeneous group
-            of philosophers tending toward or favoring a generalized common
-            goal. It may also consist of intellectual thought by several
-            individuals on several related ideas or doctrines, and the
-            distinction between schools or movements, and doctrines or theories
-            is sometimes blurred.
-          </Sp>
-          <Sp>
-            For convenience, the major movements and schools can be classified
-            under three main sub-headings:
-          </Sp>
-        </div>
+      <Row className="col-12">
+        <Sh1>By Movement</Sh1>
+        <Sp>
+          A philosophical movement is the appearance of (or the increased
+          popularity of) a specific school of philosophy, an identifiable
+          tradition of philosophy, or a marked change in philosophical thought
+          on a particular subject. A school is a group of people, especially
+          philosophers, artists, or writers, whose thought, work, or style
+          demonstrates a common origin or influence or unifying belief. These
+          are the famous “-isms” of philosophy.
+        </Sp>
+        <Sp>
+          A movement or school may represent the broad views of many individual
+          philosophers, even if they may not agree entirely in all respects, so
+          it is more a diffusely organized or heterogeneous group of
+          philosophers tending toward or favoring a generalized common goal. It
+          may also consist of intellectual thought by several individuals on
+          several related ideas or doctrines, and the distinction between
+          schools or movements, and doctrines or theories is sometimes blurred.
+        </Sp>
+        <Sp>
+          For convenience, the major movements and schools can be classified
+          under three main sub-headings:
+        </Sp>
       </Row>
       <Row>
         <Col sm="4">
-          <SHeadingSmall>Ancient</SHeadingSmall>
+          <Sh2>Ancient</Sh2>
           <hr />
           {listMoves(ancientMoves)}
         </Col>
         <Col sm="4">
-          <SHeadingSmall>Medieval</SHeadingSmall>
+          <Sh2>Medieval</Sh2>
           <hr />
           {listMoves(medMoves)}
         </Col>
         <Col sm="4">
-          <SHeadingSmall>Modern</SHeadingSmall>
+          <Sh2>Modern</Sh2>
           <hr />
           {listMoves(modMoves)}
         </Col>

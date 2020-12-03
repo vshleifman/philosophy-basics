@@ -4,8 +4,9 @@ import styled from "styled-components";
 import CallToAction from "components/CallToAction/CallToAction";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Sh1, Sh2 } from "styles/styles";
 
-const JumboImg = styled.div`
+const CoverImg = styled.div`
   background-image: linear-gradient(rgba(1, 28, 87, 0.7), rgba(1, 28, 87, 0.7)),
     url("https://visitvatican.info/wp-content/uploads/2020/07/school_athens_painting.jpg");
   background-size: cover;
@@ -13,50 +14,32 @@ const JumboImg = styled.div`
   background-attachment: fixed;
   background-repeat: no-repeat;
   height: 100vh;
-`;
-
-export const SHeading = styled.p`
+  overflow: overlay;
   color: white;
-  font-size: 3vw;
-  font-weight: 400;
-  text-align: center;
-`;
-
-export const Sp = styled.h4`
-  color: white;
-  font-weight: 200;
-  font-size: 1.5vw;
-  padding: 20px 0 5px 0;
-  text-align: center;
-  width: 100%;
-`;
-
-const SRow = styled(Row)`
-  margin-top: 20vh;
 `;
 
 const Home = () => {
   return (
     <>
-      <JumboImg>
-        <Container fluid>
+      <CoverImg>
+        <Container>
           <Row className="justify-content-between align-items-center pt-3">
             <Col lg="4">
-              <SHeading>BASICS OF PHILOSOPHY</SHeading>
+              <Sh1 style={{ paddingLeft: "0px" }}>BASICS OF PHILOSOPHY</Sh1>
             </Col>
-            <Col lg="8">
-              <Sp>
+            <Col lg="7" style={{ color: "rgba(255, 255, 255, 0.6)" }}>
+              <Sh2 style={{ paddingRight: "0px" }}>
                 If men were born free, they would, so long as they remained
                 free, form no conception of good and evil” – Baruch Spinoza
-              </Sp>
+              </Sh2>
             </Col>
           </Row>
 
-          <SRow className="align-items-center justify-content-center">
+          <Row className="align-items-center justify-content-center pt-md-5">
             <CallToAction />
-          </SRow>
+          </Row>
         </Container>
-      </JumboImg>
+      </CoverImg>
     </>
   );
 };

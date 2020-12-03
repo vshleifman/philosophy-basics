@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink as RoutLink } from "react-router-dom";
 
-const StyledNavLink = styled(RoutLink)`
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
-  padding: 0.5rem 0.5rem;
+// const SLink = styled(RoutLink)`
+//   text-decoration: none;
+//   color: rgba(255, 255, 255, 0.5);
+//   padding: 0.5rem 0.5rem;
 
-  &:hover {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.75);
-  }
-`;
+//   &:hover {
+//     text-decoration: none;
+//     color: rgba(255, 255, 255, 0.75);
+//   }
+// `;
 export enum linksEnum {
   HISTORY = "By Historical Period",
   PHILOSOPHER = "By Philosopher",
@@ -24,9 +24,15 @@ interface NavLinkProps {
 
 const NavLink = ({ page }: NavLinkProps) => {
   return (
-    <StyledNavLink
+    <RoutLink
+      style={{
+        textDecoration: "none",
+        color: "rgba(0, 0, 0, 0.7)",
+        padding: "0.5rem",
+        fontSize: "1.5vh",
+      }}
       activeStyle={{
-        color: "white",
+        color: "black",
       }}
       to={`/${page}`}
     >
@@ -35,7 +41,7 @@ const NavLink = ({ page }: NavLinkProps) => {
         : page === "philosophers"
         ? linksEnum.PHILOSOPHER
         : linksEnum.MOVEMENT}
-    </StyledNavLink>
+    </RoutLink>
   );
 };
 

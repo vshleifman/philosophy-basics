@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Text } from "styles/styles";
 import { Link, Switch, useRouteMatch, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -10,17 +9,7 @@ import { setPhilosophersThunk } from "reducers/philosopherSlice";
 import { philosophersSelector } from "selectors/selectors";
 
 import NotReady from "components/NotReady/NotReady";
-import { SHeading as SHeadingSrc, Sp as SpSrc } from "pages/Home";
-import styled from "styled-components";
-
-const SHeading = styled(SHeadingSrc)`
-  color: black;
-`;
-
-const Sp = styled(SpSrc)`
-  color: black;
-  text-align: left;
-`;
+import { Sh1, SLink, Sp } from "styles/styles";
 
 const PhilosophersPage = () => {
   const dispatch = useDispatch();
@@ -32,21 +21,19 @@ const PhilosophersPage = () => {
 
   return (
     <Container>
-      <Row>
-        <div className="col-12">
-          <SHeading>By Philosopher</SHeading>
-          <Sp>Major philosophers in alphabetical order:</Sp>
-        </div>
+      <Row className="col-12">
+        <Sh1>By Philosopher</Sh1>
+        <Sp>Major philosophers in alphabetical order:</Sp>
       </Row>
 
       <Row>
         <PhilosophersList philosophers={philosophers} fraction={3} />
       </Row>
 
-      <Text className="mt-4">
+      <Sp className="mt-4">
         For a chronological analysis of this list of major philosophers, see the
-        section <Link to="/historical">By Historical Period</Link>.
-      </Text>
+        section <SLink to="/historical">By Historical Period</SLink>.
+      </Sp>
     </Container>
   );
 };

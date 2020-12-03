@@ -6,7 +6,8 @@ import Col from "react-bootstrap/Col";
 import Figure from "react-bootstrap/Figure";
 
 import { PhilType } from "types/types";
-import { Text } from "styles/styles";
+import { Sh2, Sp } from "styles/styles";
+// import { Text } from "styles/styles";
 
 const IndivPhilosopher = ({
   text_intro,
@@ -25,24 +26,24 @@ const IndivPhilosopher = ({
           </Figure>
         </Col>
         <Col>
-          <h3>Introduction</h3>
-          <Text>{text_intro}</Text>
+          <Sh2>Introduction</Sh2>
+          <Sp>{text_intro}</Sp>
         </Col>
       </Row>
 
       <Row>
         <Col>
           {" "}
-          <h3>Life</h3>
-          <Text>{text_life}</Text>
+          <Sh2>Life</Sh2>
+          <Sp>{text_life}</Sp>
         </Col>
       </Row>
 
       <Row>
         <Col>
           {" "}
-          <h3>Work</h3>
-          <Text>{text_work}</Text>
+          <Sh2>Work</Sh2>
+          <Sp>{text_work}</Sp>
         </Col>
       </Row>
       {/* 
@@ -52,7 +53,7 @@ const IndivPhilosopher = ({
           <h3>Books</h3>
           {text.books.map((book) => (
             <>
-              <Text>{book}</Text> <br />
+              <p>{book}</p> <br />
             </>
           ))}
         </Col>

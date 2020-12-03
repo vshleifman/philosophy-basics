@@ -12,7 +12,7 @@ import Historical from "pages/historical/Historical";
 import Philosophers from "pages/philosophers/Philosophers";
 
 const SContainer = styled.div`
-  font-family: "Cinzel";
+  font-family: "Open Sans";
   min-height: 100vh;
 `;
 

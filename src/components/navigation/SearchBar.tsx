@@ -3,9 +3,9 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import styled from "styled-components";
 
-const UL = styled.ul`
-  color: white;
-`;
+// const UL = styled.ul`
+//   color: white;
+// `;
 
 const SearchBar = () => {
   const [text, setText] = useState(null);

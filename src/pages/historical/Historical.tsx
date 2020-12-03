@@ -8,63 +8,45 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { Text } from "styles/styles";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import { Era } from "types/types";
 import { useSelector } from "react-redux";
 import NotReady from "components/NotReady/NotReady";
-import { SHeading as SHeadingSrc, Sp as SpSrc } from "pages/Home";
 import styled from "styled-components";
-
-const SHeading = styled(SHeadingSrc)`
-  color: black;
-`;
-
-const SHeadingSmall = styled(SHeading)`
-  text-align: center;
-  font-size: 2.5vh;
-  font-weight: bolder;
-`;
-
-const Sp = styled(SpSrc)`
-  color: black;
-  text-align: left;
-`;
+import { Sh1, Sh2, Sp } from "styles/styles";
 
 const HistoricalPage = () => {
   return (
     <>
       <Container>
-        <Row>
-          <div className="col-12">
-            <SHeading>By Historical Period</SHeading>
+        <Row className="col-12">
+          <Sh1>By Historical Period</Sh1>
 
-            <Sp>
-              The long history of Western Philosophy is usually considered to
-              begin with Thales of Miletus, who was active around 585 B.C., and
-              will probably continue as long as humans exist.
-            </Sp>
+          <Sp>
+            The long history of Western Philosophy is usually considered to
+            begin with Thales of Miletus, who was active around 585 B.C., and
+            will probably continue as long as humans exist.
+          </Sp>
 
-            <Sp>For convenience, it can be divided into three main eras:</Sp>
-          </div>
+          <Sp>For convenience, it can be divided into three main eras:</Sp>
         </Row>
 
         <Row>
           <Col md="4">
-            <SHeadingSmall>Ancient</SHeadingSmall>
+            <Sh2>Ancient</Sh2>
             <hr />
             <PeriodCard currentEra={Era.ANCIENT} />
           </Col>
 
           <Col md="4">
-            <SHeadingSmall>Medieval</SHeadingSmall>
+            <Sh2>Medieval</Sh2>
             <hr />
             <PeriodCard currentEra={Era.MEDIEVAL} />
           </Col>
 
           <Col md="4">
-            <SHeadingSmall>Modern</SHeadingSmall>
+            <Sh2>Modern</Sh2>
             <hr />
             <PeriodCard currentEra={Era.MODERN} />
           </Col>

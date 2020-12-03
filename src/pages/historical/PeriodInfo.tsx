@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import { Text } from "styles/styles";
+// import { Text } from "styles/styles";
 import PhilosophersList from "components/philosophers-list/PhilosophersList";
 import { PeriodDataType } from "types/types";
 import { useDispatch, useSelector } from "react-redux";
 import { philosophersSelector } from "selectors/selectors";
 import { setPhilosophersThunk } from "reducers/philosopherSlice";
+import { Sh1, Sp } from "styles/styles";
 
 const PeriodInfo = ({
   title,
@@ -32,11 +33,11 @@ const PeriodInfo = ({
   return (
     <Container className="mt-3">
       <Row>
-        <h1 className="display-4">{title}</h1>
+        <Sh1>{title}</Sh1>
 
-        <Text className="mt-3">{text[0]}</Text>
+        <Sp className="mt-3">{text[0]}</Sp>
 
-        <Text>It includes the following major philosophers:</Text>
+        <Sp>It includes the following major philosophers:</Sp>
       </Row>
 
       <Row>
@@ -44,7 +45,7 @@ const PeriodInfo = ({
       </Row>
 
       <Row className="mt-3">
-        {text.map((paragraph, i) => i > 0 && <Text key={i}>{paragraph}</Text>)}
+        {text.map((paragraph, i) => i > 0 && <Sp key={i}>{paragraph}</Sp>)}
       </Row>
     </Container>
   );
